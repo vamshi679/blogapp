@@ -12,25 +12,25 @@ const bcrypt = require('bcrypt')
 const moment = require('moment');
 
 const multer = require('multer');
-const cloudinary = require('cloudinary');
-const cloudinaryStorage = require("multer-storage-cloudinary");
+// const cloudinary = require('cloudinary').v2;
+// const { cloudinaryStorage } = require('multer-storage-cloudinary');
 
-//configuring cloudinary credentials
-cloudinary.config({
-    cloud_name: 'dn00siouh',
-    api_key: '496356963664855',
-    api_secret: 's3emmJ2YDxRVLXjLktMaRzkdTz0'
-});
+// //configuring cloudinary credentials
+// cloudinary.config({
+//     cloud_name: 'dn00siouh',
+//     api_key: '496356963664855',
+//     api_secret: 's3emmJ2YDxRVLXjLktMaRzkdTz0'
+// });
 
-//configure cloudinary storage
-var storage = cloudinaryStorage({
-    cloudinary: cloudinary,
-    folder: 'blogapp',
-    allowedFormats: ['jpg', 'png', 'jpeg'],
-    filename: function (req, file, cb) {
-        cb(req.body, file.fieldname + '-' + Date.now());
-    }
-})
+// //configure cloudinary storage
+// var storage = cloudinaryStorage({
+//     cloudinary: cloudinary,
+//     folder: 'blogapp',
+//     allowedFormats: ['jpg', 'png', 'jpeg'],
+//     filename: function (req, file, cb) {
+//         cb(req.body, file.fieldname + '-' + Date.now());
+//     }
+// })
 
 //body parser
 adminExpApp.use(exp.json())
@@ -63,10 +63,11 @@ mc.connect(dbURL, { useUnifiedTopology: true }, (err, clientObj) => {
 
 
 //configure multer middleware
-var upload = multer({ storage: storage })
+// var upload = multer({ storage: storage })
 
 //request handlers
-adminExpApp.post('/register', upload.single('photo'), (req, res) => {
+// adminExpApp.post('/register', upload.single('photo'), (req, res) => {
+adminExpApp.post('/register', (req, res) => {
     
     //converting stringified data to JSON format
     req.body = JSON.parse(req.body.rform);

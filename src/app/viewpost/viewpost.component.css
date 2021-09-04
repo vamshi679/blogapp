@@ -17,7 +17,6 @@ input[type="submit"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner {
 h1{ 
     font-size: 23px;
     display: inline-block;
-    font-family: 'Quicksand', sans-serif; 
 }
 
 h3{
@@ -28,7 +27,6 @@ p{
     font-size: 16px;
     text-align: justify;
     line-height: 1.6em;
-    font-family: 'Quicksand', sans-serif; 
 }
 
 #spn{
@@ -39,15 +37,10 @@ p{
 
 small,b{
     font-size: 12px;
-    font-family: 'Quicksand', sans-serif; 
 }
 
 mat-form-field{
     width: 85%;
-}
-
-#media,span,h3{
-    font-family: 'Quicksand', sans-serif; 
 }
 
 /* b{
